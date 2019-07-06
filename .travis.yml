@@ -6,3 +6,13 @@ go:
   - tip
 
 script: make getdeps test build
+
+
+deploy:
+  provider: releases
+  api_key: ${GITHUB_TOKEN}
+  file:
+  - win-x64.zip
+  skip_cleanup: true
+  on:
+    tags: true
