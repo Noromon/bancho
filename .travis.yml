@@ -8,8 +8,9 @@ go:
 script: make getdeps test build
 
 before_deploy:
+  - ls
   - sudo apt-get -y install zip
-  - zip -r bancho-x64.zip gobuild -r
+  - zip -r bancho-x64.zip gobuild.exe -r
 
 deploy:
   provider: releases
