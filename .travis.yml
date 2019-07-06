@@ -7,12 +7,13 @@ go:
 
 script: make getdeps test build
 
+before_deploy:
+  - sudo apt-get -y install zip
+  - zip -r bancho-x64.zip gobuild -r
 
 deploy:
   provider: releases
   api_key: ${GITHUB_TOKEN}
   file:
-  - win-x64.zip
+  - bancho-x64.zip
   skip_cleanup: true
-  on:
-    tags: true
